@@ -945,6 +945,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+var _client = require("react-dom/client");
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
 // Main component (will eventually use all the others)
@@ -954,13 +955,13 @@ class myFlixApplication extends _reactDefault.default.Component {
             className: "my-Flix",
             __source: {
                 fileName: "src/index.jsx",
-                lineNumber: 11
+                lineNumber: 12
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
                     fileName: "src/index.jsx",
-                    lineNumber: 12
+                    lineNumber: 13
                 },
                 __self: this,
                 children: "Good Morning"
@@ -969,16 +970,16 @@ class myFlixApplication extends _reactDefault.default.Component {
     }
 }
 //Finds the root of the app
-const container = documents.getElementByClassName('app-container')[0];
+const container = documents.getElementById('app-container');
 // Tells React to render your app in the root DOM element
-_reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container);
+_client.createRoot(container).render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication));
 
   $parcel$ReactRefreshHelpers$b058.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"lPEwE","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"245fp"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"lPEwE","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"245fp","react-dom/client":"jdzvJ"}],"8xIwr":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -25321,6 +25322,27 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"4VxHs"}]},["2c08J","2llxl","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react-refresh/runtime":"4VxHs"}],"jdzvJ":[function(require,module,exports) {
+'use strict';
+var m = require('react-dom');
+var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+exports.createRoot = function(c, o) {
+    i.usingClientEntryPoint = true;
+    try {
+        return m.createRoot(c, o);
+    } finally{
+        i.usingClientEntryPoint = false;
+    }
+};
+exports.hydrateRoot = function(c, h, o) {
+    i.usingClientEntryPoint = true;
+    try {
+        return m.hydrateRoot(c, h, o);
+    } finally{
+        i.usingClientEntryPoint = false;
+    }
+};
+
+},{"react-dom":"gkWJK"}]},["2c08J","2llxl","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
