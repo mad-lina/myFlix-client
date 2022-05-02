@@ -26,7 +26,7 @@ export class MainView extends React.Component {
     const { movies, selectedMovie } = this.state;
 
     if (selectedMovie) {
-      return <MovieView movie={selectedMovie} />;
+      return <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />;
     }
 
     if (movies.length === 0) {
