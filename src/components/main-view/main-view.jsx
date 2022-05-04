@@ -1,19 +1,23 @@
 import React from 'react';
+import Axios from 'axios';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import axios from 'axios';
 
 export class MainView extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      movies: [
-        { id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: '...' },
-        { id: 2, Title: 'The Shawshank Redemtion', Description: 'desc2...', ImagePath: '...' },
-        { id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...' }
-      ],
+      movies: [],
       selectedMovie: null
     };
+  }
+
+  componentDidMount() {
+    axios.get('https://cryptic-taiga-17986.herokuapp.com/movies')
+      .then(response => { this.setState({ movies: response.data }); })
+      .catch(error => { console.log(error); });
   }
 
   setSelectedMovie(newSelectedMovie) {
