@@ -34,7 +34,7 @@ export class MainView extends React.Component {
     }
 
     if (movies.length === 0) {
-      return <div className="main-view">This list is empty!</div>;
+      return <div className="main-view" />;
     }
 
     return (
