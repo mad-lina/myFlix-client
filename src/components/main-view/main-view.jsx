@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view'
@@ -42,18 +43,23 @@ export class MainView extends React.Component {
       return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
     }
 
-    if (selectedMovie) {
-      return <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />;
-    }
-
     if (movies.length === 0) {
       return <div className="main-view" />;
     }
 
+    //Using the ternary operator
     return (
       <div className="main-view">
-        {movies.map((movie) => <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />)}
+        {selectedMovie ?
+          (<Row>
+            <Col>
+              <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} />
+            </Col>
+          </Row>)
+          : movies.map((movie) => (<MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />))
+        }
       </div>
     );
   }
+
 }
