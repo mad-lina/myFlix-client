@@ -1,0 +1,11 @@
+$color: steelblue;
+$newcolor: lightgray;
+
+.main-view {
+  color: $color;
+  background-color: $newcolor;
+}
+
+.button {
+  color: $newcolor;
+}
