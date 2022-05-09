@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Button, Card, CardGroup } from 'react-bootstrap';
 
 export class MovieCard extends React.Component {
   render() {
@@ -15,7 +14,6 @@ export class MovieCard extends React.Component {
           <Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
         </Card.Body>
       </Card>
-
     );
   }
 }
