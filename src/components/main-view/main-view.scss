@@ -1,11 +1,15 @@
-$color: steelblue;
-$newcolor: lightgray;
+$lightcolor: #F3E5F5;
+$boldcolor: #AD1457;
+
+@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap);
+$bodyfont: 'Work Sans', sans-serif;
 
 .main-view {
-  color: $color;
-  background-color: $newcolor;
+  background-color: $lightcolor;
+  font: $bodyfont;
 }
 
-.button {
-  color: $newcolor;
+Button {
+  background-color: $boldcolor;
+  color: white;
 }

@@ -1,12 +1,13 @@
 .my-flix {
   color: steelblue;
 }
+@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap);
 .main-view {
-  color: steelblue;
-  background-color: lightgray;
+  background-color: #F3E5F5;
+  font: "Work Sans", sans-serif;
 }
-
-.button {
-  color: lightgray;
+Button {
+  background-color: #AD1457;
+  color: white;
 }
 /*# sourceMappingURL=index.caa67093.css.map */
