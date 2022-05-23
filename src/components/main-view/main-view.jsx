@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+
+import { BrowserRouter as Router, Route } from react - router - dom;
+
 import { Row, Col, CardGroup } from 'react-bootstrap';
 import './main-view.scss';
 
@@ -14,7 +17,6 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null
     };
   }
@@ -69,10 +71,16 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, user } = this.state;
 
     if (!user) {
-      return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+      return
+      <Row>
+        <Col>
+          <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+        </Col>
+      </Row>
+
     }
 
     if (movies.length === 0) {
@@ -81,20 +89,29 @@ export class MainView extends React.Component {
 
     //Using the ternary operator
     return (
-      <Row className="main-view justify-content-md-center">
-        {selectedMovie ?
-          (<Col md={8} className="d-flex">
-            <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-          </Col>)
-          : movies.map(movie => (
-            <Col md={3} className="d-flex">
-              <MovieCard key={movie._id} movie={movie} onMovieClick={movie => { this.setSelectedMovie(movie); }} />
-            </Col>))
-        }
-      </Row>
-      //Need to add <button onClick={() => { this.onLoggedOut() }}>Logout</button>
-    );
+      <Router>
+        <Row className="main-view justify-content-md-center">
 
+          <Route exact path="/" render={() => {
+            return movies.map(m => (
+              <Col md={3} key={m._id}>
+                <MovieCard movie={m} />
+              </Col>
+            ))
+          }} />
+
+          <Route path="/movies/:movieId" render={(match) => {
+            return <Col md={8}>
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+            </Col>
+          }} />
+
+        </Row>
+      </Router>
+
+
+      //Need to add <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
+    );
   }
 
 
