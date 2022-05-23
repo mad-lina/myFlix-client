@@ -37,7 +37,7 @@ export class MovieView extends React.Component {
         <Link to={`/genres/${movie.Genre.Name}`}>
           <Button variant="link">Genre</Button>
         </Link>
-        <Button onClick={() => { onBackClick(null); }}>Back</Button>
+        <Button onClick={() => { onBackClick(); }}>Back</Button>
       </div>
 
     )
