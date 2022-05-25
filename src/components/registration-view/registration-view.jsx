@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card, CardGroup, Container } from 'react-bootstrap';
+import { Link, Redirect } from 'react-router-dom';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');

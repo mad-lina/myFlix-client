@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card, CardGroup, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
