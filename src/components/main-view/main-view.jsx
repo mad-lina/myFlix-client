@@ -93,8 +93,12 @@ export class MainView extends React.Component {
             }}
           />
 
-
           <Route path="/movies/:movieId" render={({ match, history }) => {
+            if (!user)
+              return (
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+              );
+
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)}
                 onBackClick={() => history.goBack()} />
@@ -102,6 +106,11 @@ export class MainView extends React.Component {
           }} />
 
           <Route path="/directors/:name" render={({ match, history }) => {
+            if (!user)
+              return (
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+              );
+
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
               <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director}
@@ -110,6 +119,11 @@ export class MainView extends React.Component {
           }} />
 
           <Route path="/genres/:name" render={({ match, history }) => {
+            if (!user)
+              return (
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+              );
+
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
               <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre}
