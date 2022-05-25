@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card, CardGroup, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -18,7 +19,11 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       })
       .catch(e => {
-        console.log('no such user')
+        alert(
+          "User does not exist. Please register"
+        );
+        window.open("/register", "_self");
+        console.log(e);
       });
   };
 
@@ -42,7 +47,11 @@ export function LoginView(props) {
                   </Form.Group>
 
                   <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-                  <Button>Register</Button>
+
+                  <Link to={"/register"}>
+                    <Button variate="primary" type="submit">
+                      Sign up
+                    </Button></Link>
 
                 </Form>
               </Card.Body>
