@@ -72,6 +72,7 @@ export class MainView extends React.Component {
     return (
       <Router>
 
+
         <Button onClick={() => { this.onLoggedOut(); }}>Logout</Button>
 
         <Row className="main-view justify-content-md-center">
@@ -155,9 +156,6 @@ export class MainView extends React.Component {
 
         </Row>
       </Router>
-
-
-      //Need to add <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
     );
   }
 
